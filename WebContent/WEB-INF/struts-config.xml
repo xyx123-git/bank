@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+
+<!DOCTYPE struts-config PUBLIC
+          "-//Apache Software Foundation//DTD Struts Configuration 1.1//EN"
+          "http://jakarta.apache.org/struts/dtds/struts-config_1_1.dtd">
+<struts-config>
+<form-beans>
+<form-bean name="loginForm" type="com.cx.bank.model.UserBean"/>
+
+</form-beans>
+
+
+<action-mappings>
+<action path="/Login"
+       type="Action.LoginAction"
+       name="loginForm"
+       scope="request"
+       validate="false"
+>
+<forward name="login" path="/login.jsp"/> 
+<forward name="userlogin" path="/userlogin.jsp"/> 
+<forward name="error" path="/error.jsp"/> 
+</action>
+
+<action path="/Register"
+       type="Action.RegisterAction"
+       name="loginForm"
+       scope="request"
+       validate="false"
+>
+<forward name="index" path="/index.jsp"/> 
+<forward name="error" path="/errorcf.jsp"/> 
+</action>
+
+
+
+<action path="/User"
+       type="Action.UserAction"
+       parameter="work"
+       name="loginForm"
+       scope="request"
+>
+<forward name="index" path="/index.jsp"/> 
+
+</action>
+
+
+<action path="/Manager"
+       type="Action.ManagerAction"
+       parameter="work"
+       name="loginForm"
+       scope="request"
+>
+<forward name="index" path="/index.jsp"/> 
+
+</action>
+
+
+
+<action path="/changelanguage"
+				type="Action.ChangeLanguageAction"
+		>
+			<forward name="index" path="/index.jsp"/>
+		</action>
+
+</action-mappings>
+
+<message-resources parameter="res.MessageResources" />
+</struts-config>
+
